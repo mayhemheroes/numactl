@@ -1,0 +1,20 @@
+# Dictionary for numactl's node/cpu mask-string parsers
+# (numa_parse_nodestring / numa_parse_cpustring). Tokens of the mask grammar:
+#   N  N-M  N,M  all  !invert  +relative  and the affinity keywords resolve_affinity() accepts.
+"all"
+"0"
+"1"
+"-"
+","
+"!"
+"+"
+"0-1"
+"0,1"
+"0-3"
+"!0"
+"+0"
+"netdev:"
+"file:"
+"ip:"
+"block:"
+"pci:"

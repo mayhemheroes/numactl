@@ -1,0 +1,9 @@
+project: numactl
+target: fuzz_parse_str
+cmds:
+  - cmd: /mayhem/fuzz_parse_str
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/fuzz_parse_str.dict
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_parse_str/testsuite

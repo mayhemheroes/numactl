@@ -191,3 +191,10 @@ libnuma_2.2{
   local:
     *;
 } libnuma_1.7;
+
+libnuma_2.3{
+  global:
+    numa_is_cpuless_node;
+  local:
+    *;
+} libnuma_1.7;

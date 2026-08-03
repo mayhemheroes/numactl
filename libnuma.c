@@ -2369,3 +2369,26 @@ int numa_set_mempolicy_home_node(void *start, unsigned long len, int home_node, 
 
 	return 0;
 }
+
+ /* return 1 if the node is a cpuless node, 0 when it's not, and -1 on any error */
+int numa_is_cpuless_node(int node_id)
+{
+	struct bitmask *cpumask;
+	int ret = 0;
+
+	if (node_id < 0 || node_id > numa_max_node()) {
+		errno = ERANGE;
+		return -1;
+	}
+
+	cpumask = numa_allocate_cpumask();
+	if (!cpumask)
+		return -1;
+
+	numa_node_to_cpus(node_id, cpumask);
+	if (!numa_bitmask_weight(cpumask))
+		ret = 1;
+
+	numa_bitmask_free(cpumask);
+	return ret;
+}

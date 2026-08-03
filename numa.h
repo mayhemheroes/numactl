@@ -311,6 +311,9 @@ static inline void numa_free_cpumask(struct bitmask *b)
 /* Convert node to CPU mask. -1/errno on failure, otherwise 0. */
 int numa_node_to_cpus(int, struct bitmask *);
 
+/* return 1 if the node is a cpuless node, 0 when it's not, and -1 on any error */
+int numa_is_cpuless_node(int node_id);
+
 void numa_node_to_cpu_update(void);
 
 /* report the node of the specified cpu. -1/errno on invalid cpu. */

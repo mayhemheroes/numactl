@@ -19,6 +19,7 @@ T() {
 
 # still broken
 #T "${builddir}/test/prefered"
+T "${builddir}/test/cpuless"
 T "${builddir}/test/distance"
 T "${builddir}/test/nodemap"
 T "${srcdir}/test/checkaffinity"

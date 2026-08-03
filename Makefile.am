@@ -44,6 +44,7 @@ libnuma_la_SOURCES = libnuma.c syscall.c distance.c affinity.c affinity.h sysfs.
 libnuma_la_LDFLAGS = -version-info 1:0:0 -Wl,--version-script,$(srcdir)/versions.ldscript -Wl,-init,numa_init -Wl,-fini,numa_fini
 
 check_PROGRAMS = \
+	test/cpuless \
 	test/distance \
 	test/ftok \
 	test/mbind_mig_pages \
@@ -71,6 +72,9 @@ EXTRA_DIST += \
 	test/regress-io \
 	test/runltp \
 	test/shmtest
+
+test_cpuless_SOURCES = test/cpuless.c
+test_cpuless_LDADD = libnuma.la
 
 test_distance_SOURCES = test/distance.c
 test_distance_LDADD = libnuma.la
@@ -134,6 +138,7 @@ TESTS = \
 	test/bind_range \
 	test/checkaffinity \
 	test/checktopology \
+	test/cpuless \
 	test/distance \
 	test/move_pages \
 	test/nodemap \
